@@ -1,0 +1,10 @@
+# import "../../users/schema/index.graphql"
+
+type Chapter {
+  id: String
+  title: String
+  text: String
+  requirements: String
+  recurringInterval: Int
+  assignedTo: User
+}

@@ -1,9 +1,5 @@
-type User {
-  id: String
-  firstName: String
-  lastName: String
-}
+# import "./index.graphql"
 
 type Query {
-  users: [User]
+  chapters: [Chapter]
 }

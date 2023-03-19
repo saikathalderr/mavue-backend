@@ -5,6 +5,7 @@ import { loadSchemaSync } from "@graphql-tools/load";
 import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
 import { join } from "node:path";
 import { userMutations, userQueries } from "./resources/users";
+import { chapterMutations, chapterQueries } from "./resources/chapters";
 
 const startApolloServer = async () => {
   const schema = loadSchemaSync(join(__dirname, "schema.graphql"), {
@@ -15,9 +16,11 @@ const startApolloServer = async () => {
     resolvers: {
       Mutation: {
         ...userMutations,
+        ...chapterMutations
       },
       Query: {
         ...userQueries,
+        ...chapterQueries
       },
     },
   });

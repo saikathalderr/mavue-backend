@@ -1,16 +1,4 @@
-type User {
-  id: String!
-  firstName: String!
-  lastName: String!
-}
-
-type Chapter {
-  title: String!
-  text: String!
-  requirements: String!
-  recurringInterval: Int
-  assignedTo: User!
-}
+# import "./index.graphql"
 
 input ChapterInput {
   title: String!
@@ -21,5 +9,5 @@ input ChapterInput {
 }
 
 type Mutation {
-  createChapter(input: UserInput!): Chapter
+  createChapter(input: ChapterInput!): Chapter
 }

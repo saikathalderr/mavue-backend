@@ -1,1 +1,2 @@
 # import Mutation.*, Query.* from "./resources/users/index.graphql"
+# import Mutation.*, Query.* from "./resources/chapters/index.graphql"
