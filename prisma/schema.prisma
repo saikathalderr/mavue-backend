@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  firstName String    @map("first_name")
+  lastName  String    @map("last_name")
+  Chapter   Chapter[]
+
+  @@map("users")
+}
+
+model Chapter {
+  id                String @id @default(uuid())
+  title             String @map("title")
+  text              String @map("text")
+  requirements      String @map("requirements")
+  recurringInterval Int    @map("recurringInterval")
+  assignedTo        User   @relation(fields: [userId], references: [id])
+  userId            String
+
+  @@map("chapters")
+}

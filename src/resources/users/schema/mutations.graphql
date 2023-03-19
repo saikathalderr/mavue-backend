@@ -1,0 +1,10 @@
+#import "./index.graphql"
+
+input UserInput {
+  firstName: String!
+  lastName: String!
+}
+
+type Mutation {
+  createUser(input: UserInput!): User
+}

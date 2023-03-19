@@ -1,0 +1,25 @@
+type User {
+  id: String!
+  firstName: String!
+  lastName: String!
+}
+
+type Chapter {
+  title: String!
+  text: String!
+  requirements: String!
+  recurringInterval: Int
+  assignedTo: User!
+}
+
+input ChapterInput {
+  title: String!
+  text: String!
+  requirements: String!
+  recurringInterval: Int
+  userId: String!
+}
+
+type Mutation {
+  createChapter(input: UserInput!): Chapter
+}

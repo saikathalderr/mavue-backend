@@ -1,0 +1,5 @@
+#import "./index.graphql"
+
+type Query {
+  users: [User]
+}
