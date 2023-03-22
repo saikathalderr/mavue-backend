@@ -5,6 +5,14 @@ input UserInput {
   lastName: String!
 }
 
+input DeleteUserInput {
+  id: String!
+}
+
 type Mutation {
   createUser(input: UserInput!): User
+}
+
+type Mutation {
+  deleteUser(input: DeleteUserInput!): User
 }
