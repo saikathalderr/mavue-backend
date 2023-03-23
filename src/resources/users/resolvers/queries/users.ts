@@ -4,10 +4,7 @@ import { Users } from "../types";
 export const users: Users = async (parent, args, { prisma }) => {
   try {
     return await prisma.user.findMany({
-      where: {},
-      include: {
-        Chapter: true
-      }
+      where: {}
     });
   } catch (error) {
     throw new GraphQLError("Failed to fetch users", {

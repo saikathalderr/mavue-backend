@@ -3,28 +3,22 @@ import { Create } from "../../types";
 import { validate } from "./validation/validate";
 
 export const create: Create = async (_, args, { prisma }) => {
-  const { requirements, text, title, recurringInterval, userId } =
-    await validate(args.input);
+  const { title, requirements, recurringInterval } = await validate(args.input);
 
   try {
-    const chapter = await prisma.chapter.create({
+    const user = await prisma.chapter.create({
       data: {
-        text,
         title,
-        recurringInterval,
         requirements,
-        userId
+        recurringInterval,
+        userId: '',
+        text: ''
       },
-      include: {
-        assignedTo: true
-      }
     });
 
-    console.log(`[CronJob] - will trigger notification for user - ${userId}`);
-
-    return chapter;
+    return user;
   } catch (error) {
-    throw new GraphQLError("Failed to create chapter", {
+    throw new GraphQLError("Failed to create user", {
       extensions: {
         code: "INTERNAL_SERVER_ERROR",
       },

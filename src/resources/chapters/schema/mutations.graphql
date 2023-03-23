@@ -1,11 +1,11 @@
-# import "./index.graphql"
+#import "./index.graphql"
 
 input ChapterInput {
   title: String!
-  text: String!
+  text: String
   requirements: String!
-  recurringInterval: Int
-  userId: String!
+  recurringInterval: Int!
+  userId: String
 }
 
 type Mutation {
