@@ -3,3 +3,6 @@
 type Query {
   chapters: [Chapter]
 }
+type Query {
+  chapter(id: String!): Chapter
+}

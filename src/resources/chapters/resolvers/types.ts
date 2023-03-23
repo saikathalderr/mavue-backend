@@ -26,6 +26,10 @@ export type UpdateArgs = {
   id: string
 };
 
+export type ChapterByIdArgs = {
+  id: string
+}
+
 export type Validate = (
   input: ChapterCreateInput
 ) => Promise<ChapterCreateInput>;
@@ -44,6 +48,13 @@ export type Chapters = (
   args: null | undefined,
   context: Context
 ) => Promise<Chapter[]>;
+
+export type ChapterById = (
+  parent: unknown | undefined,
+  args: ChapterByIdArgs,
+  context: Context
+) => Promise<Chapter | undefined | null>;
+
 
 export type Create = (
   parent: unknown | undefined,

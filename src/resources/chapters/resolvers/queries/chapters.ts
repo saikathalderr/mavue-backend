@@ -10,7 +10,7 @@ export const chapters: Chapters = async (parent, args, { prisma }) => {
             }
         })
     } catch (error) {
-        throw new GraphQLError("Failed to fetch users", {
+        throw new GraphQLError("Failed to fetch chapters", {
             extensions: {
                 code: "INTERNAL_SERVER_ERROR",
             },
