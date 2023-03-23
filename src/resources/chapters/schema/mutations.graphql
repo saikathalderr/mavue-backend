@@ -1,6 +1,6 @@
 #import "./index.graphql"
 
-input ChapterInput {
+input ChapterCreateInput {
   title: String!
   text: String
   requirements: String!
@@ -8,6 +8,15 @@ input ChapterInput {
   userId: String
 }
 
+input ChapterUpdateInput {
+  text: String
+  userId: String
+}
+
 type Mutation {
-  createChapter(input: ChapterInput!): Chapter
+  createChapter(input: ChapterCreateInput!): Chapter
+}
+
+type Mutation {
+  updateChapter(input: ChapterUpdateInput!, id: String!): Chapter
 }

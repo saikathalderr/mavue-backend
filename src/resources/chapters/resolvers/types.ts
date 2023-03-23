@@ -1,36 +1,58 @@
 import { PrismaClient } from "@prisma/client";
-import {User} from "../../users/resolvers/types";
+import { User } from "../../users/resolvers/types";
 
 export type Chapter = {
-  id: string
-  title: string
-  text: string | null
-  requirements: string
-  recurringInterval: number
-  assignedTo: User | null
-  userId: string | null
+  id: string;
+  title: string;
+  text: string | null | undefined;
+  requirements: string;
+  recurringInterval: number;
+  assignedTo: User | null | undefined;
+  userId: string | null | undefined;
 };
 
-export type ChapterInput = Pick<Chapter, "title" | "requirements" | "recurringInterval">;
+export type ChapterCreateInput = Pick<
+  Chapter,
+  "title" | "requirements" | "recurringInterval"
+>;
+export type ChapterUpdateInput = Pick<Chapter, "text" | "userId">;
 
 export type Args = {
-  input: ChapterInput;
+  input: ChapterCreateInput;
 };
 
-export type Validate = (input: ChapterInput) => Promise<ChapterInput>;
+export type UpdateArgs = {
+  input: ChapterUpdateInput
+  id: string
+};
+
+export type Validate = (
+  input: ChapterCreateInput
+) => Promise<ChapterCreateInput>;
+
+export type ValidateChapterUpdate = (
+  input: ChapterUpdateInput
+) => Promise<ChapterUpdateInput>;
+
 
 type Context = {
   prisma: PrismaClient;
 };
-
-export type Create = (
-  parent: unknown | undefined,
-  args: Args,
-  context: Context
-) => Promise<ChapterInput>;
 
 export type Chapters = (
   parent: unknown | undefined,
   args: null | undefined,
   context: Context
 ) => Promise<Chapter[]>;
+
+export type Create = (
+  parent: unknown | undefined,
+  args: Args,
+  context: Context
+) => Promise<ChapterCreateInput>;
+
+export type Update = (
+  parent: unknown | undefined,
+  args: UpdateArgs,
+  context: Context
+) => Promise<ChapterUpdateInput>;

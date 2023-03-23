@@ -18,7 +18,7 @@ export const create: Create = async (_, args, { prisma }) => {
 
     return user;
   } catch (error) {
-    throw new GraphQLError("Failed to create user", {
+    throw new GraphQLError("Failed to create chapter", {
       extensions: {
         code: "INTERNAL_SERVER_ERROR",
       },

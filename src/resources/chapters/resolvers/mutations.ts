@@ -1,3 +1,4 @@
 import createChapter from "./mutations/create";
+import updateChapter from "./mutations/update";
 
-export default { createChapter };
+export default { createChapter, updateChapter };
