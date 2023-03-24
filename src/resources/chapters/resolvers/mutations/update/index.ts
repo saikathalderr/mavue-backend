@@ -20,6 +20,8 @@ export const create: Update = async (_, args, { prisma }) => {
       }
     });
 
+    console.info(`[CronJob]: trigger notification for user - ${userId}`);
+
     return user;
   } catch (error) {
     throw new GraphQLError("Failed to update chapter", {
